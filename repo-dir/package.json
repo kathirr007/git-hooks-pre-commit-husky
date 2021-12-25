@@ -1,0 +1,19 @@
+{
+  "name": "repo-dir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "micromatch": "^4.0.4"
+  },
+  "lint-staged": {
+    "*.js": ["prettier --ignore-unknown --write", "eslint --cache --fix"]
+  }
+}

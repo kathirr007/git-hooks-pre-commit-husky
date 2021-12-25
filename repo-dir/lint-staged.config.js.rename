@@ -1,0 +1,19 @@
+// lint-staged.config.js
+const micromatch = require('micromatch')
+
+module.exports = (allFiles) => {
+  const codeFiles = micromatch(allFiles, [
+    '**/*.js',
+    '!**/js/script.js',
+    '!*min*.js',
+    '!*requirejs-config*.js'
+  ])
+  console.log(codeFiles)
+  if (codeFiles.length != 0) {
+    return [
+      `prettier --ignore-unknown --write ${codeFiles.join(' ')}`,
+      `eslint --cache --fix ${codeFiles.join(' ')}`
+    ]
+  }
+  return 'printf \'%s\n\' "Script files aren\'t allowed in src directory" >&2'
+}

@@ -1,0 +1,8 @@
+// .lintstagedrc.js
+module.exports = {
+    '**/*.js?(x)': (filenames) => filenames.map((filename) => {
+        let filesToExclude = ['','','','']
+        [`prettier --write '${filename}'`, `eslint --cache --fix '${filename}'`]
+    }),
+  }
+  
